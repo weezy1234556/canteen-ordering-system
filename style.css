@@ -1,0 +1,122 @@
+/* Main Styles for Canteen Food Ordering System */
+
+/* Global Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+/* Hero Section */
+.hero-section {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+}
+
+/* Feature Icons */
+.feature-icon {
+  font-size: 2.5rem;
+  color: #0d6efd;
+}
+
+/* Food Item Cards */
+.food-item-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.food-item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.food-item-image {
+  height: 180px;
+  object-fit: cover;
+}
+
+.category-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Cart Item */
+.cart-item {
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+/* Order Status */
+.order-status-container {
+  position: relative;
+  padding-left: 30px;
+}
+
+.order-status-line {
+  position: absolute;
+  left: 15px;
+  top: 30px;
+  bottom: 0;
+  width: 2px;
+  background-color: #dee2e6;
+  z-index: 1;
+}
+
+.order-status-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  border: 2px solid #dee2e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.order-status-active .order-status-circle {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: white;
+}
+
+.order-status-completed .order-status-circle {
+  background-color: #198754;
+  border-color: #198754;
+  color: white;
+}
+
+/* Admin Dashboard */
+.stats-card {
+  border-left: 4px solid #0d6efd;
+}
+
+.stats-icon {
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+      padding: 30px 0;
+  }
+  
+  .food-item-image {
+      height: 150px;
+  }
+}

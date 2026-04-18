@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Canteen Food Ordering System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            min-height: 100vh;
+            background-color: #343a40;
+            color: white;
+        }
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            border-radius: 0;
+            padding: 12px 20px;
+        }
+        .sidebar .nav-link:hover {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .sidebar .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        .sidebar i {
+            margin-right: 10px;
+        }
+        .tab-content {
+            padding: 20px;
+        }
+        .currency::before {
+            content: 'GH₵';
+            margin-right: 5px;
+        }
+        .admin-header {
+            background: #0d6efd;
+            color: white;
+            padding: 15px;
+        }
+        .card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .food-item-card {
+            transition: all 0.3s;
+        }
+        .food-item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        .disabled-item {
+            opacity: 0.6;
+        }
+        .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <div class="text-center mb-4">
+                        <h4>Admin Panel</h4>
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#dashboard" data-bs-toggle="tab">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#food-items" data-bs-toggle="tab">
+                                <i class="fas fa-utensils"></i> Food Items
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#add-item" data-bs-toggle="tab">
+                                <i class="fas fa-plus-circle"></i> Add New Item
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#orders" data-bs-toggle="tab">
+                                <i class="fas fa-shopping-bag"></i> Orders
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#transactions" data-bs-toggle="tab">
+                                <i class="fas fa-money-bill-wave"></i> Transactions
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#settings" data-bs-toggle="tab">
+                                <i class="fas fa-cog"></i> Settings
+                            </a>
+                        </li>
+                        <li class="nav-item mt-5">
+                            <a class="nav-link text-danger" href="#">
+                                <i class="fas fa-sign-out-alt"></i> Log Out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="admin-header rounded my-3 d-flex justify-content-between align-items-center">
+                    <h2><i class="fas fa-utensils me-2"></i>Canteen Food Management System</h2>
+                    <div class="d-flex align-items-center">
+                        <span class="me-3">Admin User</span>
+                        <img src="/api/placeholder/40/40" class="rounded-circle" alt="Admin">
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <!-- Dashboard -->
+                    <div class="tab-pane fade show active" id="dashboard">
+                        <h3 class="mb-4">Dashboard</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card bg-primary text-white">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Total Orders</h5>
+                                        <h2 class="card-text">152</h2>
+                                        <p class="mb-0">↑ 12% from last week</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-success text-white">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Revenue</h5>
+                                        <h2 class="card-text">GH₵ 8,540</h2>
+                                        <p class="mb-0">↑ 8% from last week</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-info text-white">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Food Items</h5>
+                                        <h2 class="card-text">45</h2>
+                                        <p class="mb-0">5 new items this month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Recent Orders</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-0">Order #1245</h6>
+                                                    <small class="text-muted">15 minutes ago</small>
+                                                </div>
+                                                <span class="badge bg-warning">Processing</span>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-0">Order #1244</h6>
+                                                    <small class="text-muted">32 minutes ago</small>
+                                                </div>
+                                                <span class="badge bg-success">Delivered</span>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-0">Order #1243</h6>
+                                                    <small class="text-muted">1 hour ago</small>
+                                                </div>
+                                                <span class="badge bg-success">Delivered</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Popular Items</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-0">Jollof Rice with Chicken</h6>
+                                                    <small class="text-muted">Ghanaian Cuisine</small>
+                                                </div>
+                                                <span class="badge bg-primary rounded-pill">124 orders</span>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-0">Banku with Tilapia</h6>
+                                                    <small class="text-muted">Ghanaian Cuisine</small>
+                                                </div>
+                                                <span class="badge bg-primary rounded-pill">98 orders</span>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-0">Waakye with Beef</h6>
+                                                    <small class="text-muted">Ghanaian Cuisine</small>
+                                                </div>
+                                                <span class="badge bg-primary rounded-pill">87 orders</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Food Items -->
+                    <div class="tab-pane fade" id="food-items">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3>Manage Food Items</h3>
+                            <div>
+                                <select class="form-select form-select-sm me-2 d-inline-block w-auto">
+                                    <option>All Categories</option>
+                                    <option>Ghanaian Cuisine</option>
+                                    <option>Fast Food</option>
+                                    <option>Beverages</option>
+                                    <option>Desserts</option>
+                                </select>
+                                <button class="btn btn-primary btn-sm" onclick="document.querySelector('[href=\'#add-item\']').click()">
+                                    <i class="fas fa-plus-circle"></i> Add New Item
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <!-- Food Item 1 -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card food-item-card">
+                                    <span class="status-badge badge bg-success">Available</span>
+                                    <img src="/api/placeholder/400/200" class="card-img-top" alt="Food Item">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Jollof Rice with Chicken</h5>
+                                        <p class="card-text">Spicy Ghanaian jollof rice served with grilled chicken and vegetables.</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h5 class="text-primary mb-0">GH₵ 35.00</h5>
+                                            <span class="badge bg-info">Ghanaian Cuisine</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between">
+                                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editFoodModal">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-warning">
+                                            <i class="fas fa-power-off"></i> Disable
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Food Item 2 -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card food-item-card">
+                                    <span class="status-badge badge bg-success">Available</span>
+                                    <img src="/api/placeholder/400/200" class="card-img-top" alt="Food Item">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Banku with Tilapia</h5>
+                                        <p class="card-text">Traditional Ghanaian banku served with grilled tilapia and hot pepper sauce.</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h5 class="text-primary mb-0">GH₵ 45.00</h5>
+                                            <span class="badge bg-info">Ghanaian Cuisine</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between">
+                                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editFoodModal">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-warning">
+                                            <i class="fas fa-power-off"></i> Disable
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Food Item 3 -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card food-item-car

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Canteen Food Ordering System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Ghana Campus Canteen</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="orders.html">My Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Header -->
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Our Menu</h1>
+        
+        <!-- Category Navigation -->
+        <ul class="nav nav-pills mb-4 justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="#main-dishes">Main Dishes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#soups-stews">Soups & Stews</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#rice-dishes">Rice Dishes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#sides">Sides</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#drinks">Drinks</a>
+            </li>
+        </ul>
+
+        <!-- Main Dishes Section -->
+        <section id="main-dishes" class="mb-5">
+            <h2 class="mb-4">Main Dishes</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/banku with tilapia.jpeg" class="card-img-top" alt="Banku with Tilapia">
+                        <div class="card-body">
+                            <h5 class="card-title">Banku with Tilapia</h5>
+                            <p class="card-text">Fermented corn and cassava dough with grilled tilapia, pepper sauce and fresh vegetables.</p>
+                            <p class="price">₵35.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="1">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/fufu with light soup.jpg" class="card-img-top" alt="Fufu with Light Soup">
+                        <div class="card-body">
+                            <h5 class="card-title">Fufu with Light Soup</h5>
+                            <p class="card-text">Pounded cassava and plantain with spicy light soup and goat meat.</p>
+                            <p class="price">₵30.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="2">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/Ga-kenkey with fish.webp" class="card-img-top" alt="Kenkey with Fish">
+                        <div class="card-body">
+                            <h5 class="card-title">Kenkey with Fish</h5>
+                            <p class="card-text">Fermented corn dough with fried fish, pepper sauce and fresh vegetables.</p>
+                            <p class="price">₵28.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="3">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Soups & Stews Section -->
+        <section id="soups-stews" class="mb-5">
+            <h2 class="mb-4">Soups & Stews</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/groundnut-soup-with-chicken.jpg" class="card-img-top" alt="Groundnut Soup">
+                        <div class="card-body">
+                            <h5 class="card-title">Groundnut soup with Chicken</h5>
+                            <p class="card-text">Rich peanut-based soup with tender chicken pieces and mixed vegetables.</p>
+                            <p class="price">₵25.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="4">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/palm nut soup.jpg" class="card-img-top" alt="Palm nut soup">
+                        <div class="card-body">
+                            <h5 class="card-title">Palmnut Soup</h5>
+                            <p class="card-text">Traditional soup made from palm fruit extract with assorted meat and seafood.</p>
+                            <p class="price">₵32.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="5">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/Okrosoup.jpg" class="card-img-top" alt="Okrosoup">
+                        <div class="card-body">
+                            <h5 class="card-title">Okro Stew</h5>
+                            <p class="card-text">Delicious stew made with fresh okra, tomatoes, onions, and fish.</p>
+                            <p class="price">₵22.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="6">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rice Dishes Section -->
+        <section id="rice-dishes" class="mb-5">
+            <h2 class="mb-4">Rice Dishes</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/Jollof Rice with Chicken.jpg" class="card-img-top" alt="Jollof Rice">
+                        <div class="card-body">
+                            <h5 class="card-title">Jollof Rice with Chicken</h5>
+                            <p class="card-text">Spicy tomato-infused rice served with grilled chicken and salad.</p>
+                            <p class="price">₵30.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="7">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/Waakye.webp" class="card-img-top" alt="Waakye">
+                        <div class="card-body">
+                            <h5 class="card-title">Waakye</h5>
+                            <p class="card-text">Rice and beans cooked with dried millet leaves, served with stew, spaghetti, and protein of choice.</p>
+                            <p class="price">₵25.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="8">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/Fried Rice with Beef.jpg" class="card-img-top" alt="Fried Rice">
+                        <div class="card-body">
+                            <h5 class="card-title">Fried Rice with Beef</h5>
+                            <p class="card-text">Vegetable fried rice served with beef sauce and coleslaw.</p>
+                            <p class="price">₵28.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="9">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sides Section -->
+        <section id="sides" class="mb-5">
+            <h2 class="mb-4">Sides</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/Kelewele.jpg" class="card-img-top" alt="Kelewele">
+                        <div class="card-body">
+                            <h5 class="card-title">Kelewele</h5>
+                            <p class="card-text">Spicy fried plantain cubes seasoned with ginger, garlic, and pepper.</p>
+                            <p class="price">₵15.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="10">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/Gari Foto.jpg" class="card-img-top" alt="Gari Foto">
+                        <div class="card-body">
+                            <h5 class="card-title">Gari Foto</h5>
+                            <p class="card-text">Cassava flakes mixed with vegetables, eggs, and protein of choice.</p>
+                            <p class="price">₵18.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="11">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/Yam chips.jpg" class="card-img-top" alt="Yam Chips">
+                        <div class="card-body">
+                            <h5 class="card-title">Yam Chips</h5>
+                            <p class="card-text">Crispy fried yam chips served with pepper sauce.</p>
+                            <p class="price">₵12.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="12">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Drinks Section -->
+        <section id="drinks" class="mb-5">
+            <h2 class="mb-4">Drinks</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/Sobolo.jpeg" class="card-img-top" alt="Sobolo">
+                        <div class="card-body">
+                            <h5 class="card-title">Sobolo</h5>
+                            <p class="card-text">Refreshing hibiscus drink with pineapple and ginger.</p>
+                            <p class="price">₵8.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="13">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/Asaana.jpg" class="card-img-top" alt="Asaana">
+                        <div class="card-body">
+                            <h5 class="card-title">Asaana</h5>
+                            <p class="card-text">Fermented corn drink, lightly sweetened.</p>
+                            <p class="price">₵6.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="14">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="img/Fresh Coconut Water.jpeg" class="card-img-top" alt="Fresh Coconut Water">
+                        <div class="card-body">
+                            <h5 class="card-title">Fresh Coconut Water</h5>
+                            <p class="card-text">Refreshing coconut water served in the shell.</p>
+                            <p class="price">₵10.00</p>
+                            <button class="btn btn-primary add-to-cart" data-id="15">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Ghana Campus Canteen</h5>
+                    <p>Providing delicious Ghanaian meals to keep you energized through your studies.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="menu.html" class="text-white">Menu</a></li>
+                        <li><a href="cart.html" class="text-white">Cart</a></li>
+                        <li><a href="orders.html" class="text-white">My Orders</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact</h5>
+                    <address>
+                        Campus Grounds<br>
+                        Accra, Ghana<br>
+                        Phone: +233 20 123 4567<br>
+                        Email: info@ghanacampuscanteen.com
+                    </address>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <p>&copy; 2025 Ghana Campus Canteen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>

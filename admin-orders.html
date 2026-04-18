@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Orders | Canteen Food Ordering System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="dashboard.html">Admin Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manage-items.html">Manage Items</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="admin-orders.html">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="admin-logout-btn" href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <h2 class="mb-4">Manage Orders</h2>
+        
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="btn-group">
+                    <button class="btn btn-outline-secondary active" data-filter="all">All Orders</button>
+                    <button class="btn btn-outline-secondary" data-filter="pending">Pending</button>
+                    <button class="btn btn-outline-secondary" data-filter="processing">Processing</button>
+                    <button class="btn btn-outline-secondary" data-filter="completed">Completed</button>
+                    <button class="btn btn-outline-secondary" data-filter="cancelled">Cancelled</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" id="search-orders" class="form-control" placeholder="Search by order ID or customer">
+                    <button class="btn btn-outline-secondary" type="button" id="search-btn">Search</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Orders Table -->
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-table-body">
+                    <!-- Orders will be loaded here via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="no-orders" class="alert alert-info text-center d-none">
+            No orders found.
+        </div>
+    </div>
+    
+    <!-- Order Details Modal -->
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Order Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Order ID:</strong> <span id="modal-order-id"></span></p>
+                            <p><strong>Customer:</strong> <span id="modal-customer-name"></span></p>
+                            <p><strong>Date:</strong> <span id="modal-order-date"></span></p>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <p><strong>Subtotal:</strong> $<span id="modal-subtotal"></span></p>
+                            <p><strong>Tax:</strong> $<span id="modal-tax"></span></p>
+                            <p><strong>Total:</strong> $<span id="modal-total"></span></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <h6>Order Items:</h6>
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th class="text-end">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="modal-order-items">
+                                <!-- Order items will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr>
+                    <div class="mt-3">
+                        <h6>Update Order Status:</h6>
+                        <div class="d-flex align-items-center">
+                            <select id="update-order-status" class="form-select me-2">
+                                <option value="pending">Pending</option>
+                                <option value="processing">Processing</option>
+                                <option value="completed">Completed</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                            <button id="save-status-btn" class="btn btn-primary">Update Status</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Canteen Food Ordering System</h5>
+                    <p>Admin Management Portal</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2025 Canteen Food Ordering System. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/admin-orders.js"></script>
+</body>
+</html>
